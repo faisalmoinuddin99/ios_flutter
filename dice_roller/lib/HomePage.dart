@@ -17,17 +17,22 @@ class _HomePageState extends State<HomePage> {
   AssetImage six = AssetImage("images/six.png");
 
   late AssetImage diceImage;
+  late AssetImage newDiceImage;
 
   @override
   void initState() {
     super.initState();
     setState(() {
       diceImage = one;
+      newDiceImage = one;
     });
   }
 
   void rollDice() {
     int random = (1 + Random().nextInt(6));
+    int newRandom = (1 + Random().nextInt(6));
+
+    AssetImage? assignmentImage;
 
     AssetImage? newIamge;
 
@@ -57,8 +62,36 @@ class _HomePageState extends State<HomePage> {
 
         break;
     }
+
+    switch (newRandom) {
+      case 1:
+        assignmentImage = one;
+
+        break;
+      case 2:
+        assignmentImage = two;
+
+        break;
+      case 3:
+        assignmentImage = three;
+
+        break;
+      case 4:
+        assignmentImage = four;
+
+        break;
+      case 5:
+        assignmentImage = five;
+
+        break;
+      case 6:
+        assignmentImage = six;
+
+        break;
+    }
     setState(() {
       diceImage = newIamge!;
+      newDiceImage = assignmentImage!;
     });
   }
 
@@ -71,10 +104,15 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Image(
                 image: diceImage,
+                width: 200.0,
+                height: 200.0,
+              ),
+              Image(
+                image: newDiceImage,
                 width: 200.0,
                 height: 200.0,
               ),
