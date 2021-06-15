@@ -38,12 +38,53 @@ class _HomePageState extends State<HomePage> {
   }
 
   //todo: playGame method
+  playGame(int index) {
+    if (this.gameState[index] == "empty") {
+      setState(() {
+        if (this.isCross) {
+          this.gameState[index] = "cross";
+        } else {
+          this.gameState[index] = "circle";
+        }
+        this.isCross = !this.isCross;
+        this.checkWin();
+      });
+    }
+  }
 
   //todo: Reset game method
+  resetGame() {
+    setState(() {
+      this.gameState = [
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+        "empty",
+      ];
+      this.message = "";
+    });
+  }
 
   //todo: get image method
+  getImage(String value) {
+    switch (value) {
+      case ('empty'):
+        return edit;
+      case ('cross'):
+        return cross;
+
+      case ('circle'):
+        return circle;
+    }
+  }
 
   //todo: check for win logic
+  checkWin() {}
 
   @override
   Widget build(BuildContext context) {
