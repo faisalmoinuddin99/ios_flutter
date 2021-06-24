@@ -7,5 +7,5 @@ Budget Tracker App.
 This app will help you to track your expenses and and show the final output in
 graphical format.
 
-![Screenshot 1](1.png)
-![Screenshot 2](2.png)
+![Screenshot 1](mascot/1.png)
+![Screenshot 2](mascot/2.png)
